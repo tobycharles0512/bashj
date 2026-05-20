@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sasha's Fact of the Day</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: repeating-linear-gradient(
+        45deg,
+        #ff1744,
+        #ff1744 20px,
+        #ff5983 20px,
+        #ff5983 40px,
+        #ec407a 40px,
+        #ec407a 60px,
+        #f06292 60px,
+        #f06292 80px
+      );
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: white;
+      animation: slideDown 0.6s ease-out;
+    }
+
+    .header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 2px;
+      letter-spacing: -1px;
+    }
+
+    .header-subtitle {
+      font-size: 14px;
+      opacity: 0.9;
+      font-weight: 300;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .header p {
+      font-size: 16px;
+      opacity: 0.85;
+      font-weight: 300;
+      margin-top: 8px;
+    }
+
+    .date-display {
+      color: rgba(255,255,255,0.8);
+      font-size: 13px;
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .streak-display {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .fact-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: slideUp 0.6s ease-out;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .fact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ff1744, #d81b60, #ec407a, #f06292);
+      background-size: 200% 100%;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    .category-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff1744, #d81b60);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .fact-text {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      margin-bottom: 24px;
+      font-weight: 500;
+      letter-spacing: -0.3px;
+    }
+
+    .fact-source {
+      font-size: 13px;
+      color: #888;
+      border-top: 1px solid #eee;
+      padding-top: 16px;
+      font-style: italic;
+    }
+
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: linear-gradient(135deg, #ff1744, #d81b60);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 15px rgba(255, 23, 68, 0.4);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 23, 68, 0.6);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .secondary-btn {
+      background: white;
+      color: #ff1744;
+      border: 2px solid #ff1744;
+      box-shadow: none;
+    }
+
+    .secondary-btn:hover {
+      background: #fff5f7;
+      box-shadow: 0 4px 15px rgba(255, 23, 68, 0.2);
+    }
+
+    .check-btn {
+      padding: 14px 28px;
+      font-size: 15px;
+      margin-top: 0;
+    }
+
+    .check-btn.checked {
+      background: linear-gradient(135deg, #c2185b, #ad1457);
+      opacity: 0.85;
+    }
+
+    .calendar-section {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: slideUp 0.8s ease-out;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .calendar-header h2 {
+      font-size: 20px;
+      color: #ff1744;
+      font-weight: 600;
+    }
+
+    .month-nav {
+      display: flex;
+      gap: 12px;
+    }
+
+    .month-nav button {
+      padding: 8px 12px;
+      font-size: 12px;
+      background: linear-gradient(135deg, #ff1744, #d81b60);
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .day-label {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: #d81b60;
+      text-transform: uppercase;
+      padding: 8px 0;
+      letter-spacing: 0.5px;
+    }
+
+    .day-box {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #ffb3ba;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: #fff5f7;
+    }
+
+    .day-box:hover {
+      border-color: #ff1744;
+      background: #ffebee;
+    }
+
+    .day-box.checked {
+      background: linear-gradient(135deg, #ff1744, #d81b60);
+      color: white;
+      border-color: #ff1744;
+      box-shadow: 0 4px 12px rgba(255, 23, 68, 0.3);
+    }
+
+    .day-box.empty {
+      color: #ccc;
+      cursor: default;
+      border-color: #f5f5f5;
+      background: #fafafa;
+    }
+
+    .day-box.empty:hover {
+      border-color: #f5f5f5;
+      background: #fafafa;
+    }
+
+    .streak-info {
+      background: linear-gradient(135deg, #ffe0e6, #ffb3ba);
+      padding: 16px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .streak-info p {
+      font-size: 13px;
+      color: #c2185b;
+      margin: 4px 0;
+    }
+
+    .streak-info .streak-number {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ff1744;
+    }
+
+    .counter {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .counter span {
+      color: white;
+      font-weight: 600;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes shimmer {
+      0%, 100% {
+        background-position: 0% center;
+      }
+      50% {
+        background-position: 100% center;
+      }
+    }
+
+    .pulse-icon {
+      display: inline-block;
+      margin-left: 8px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 36px;
+      }
+
+      .fact-card {
+        padding: 28px;
+      }
+
+      .fact-text {
+        font-size: 18px;
+      }
+
+      .controls {
+        gap: 8px;
+      }
+
+      button {
+        padding: 10px 18px;
+        font-size: 13px;
+      }
+
+      .calendar-section {
+        padding: 20px;
+      }
+
+      .calendar-header h2 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-subtitle">Welcome back to</div>
+      <h1>Bashes's Fact <span class="pulse-icon">💕</span></h1>
+      <p>Learn something new every single day</p>
+      <div class="date-display" id="dateDisplay"></div>
+      <div class="streak-display">🔥 <span id="streakCount">0</span> day streak</div>
+    </div>
+
+    <div class="fact-card">
+      <div class="category-badge" id="categoryBadge">Psychology</div>
+      <div class="fact-text" id="factText">Loading today's fact...</div>
+      <div class="fact-source" id="factSource"></div>
+      <div class="controls">
+        <button class="check-btn" id="checkBtn" onclick="checkTodayOff()">✓ Got It!</button>
+        <button class="secondary-btn" onclick="generateNewFact()">🔄 Different Fact</button>
+        <button class="secondary-btn" onclick="copyToClipboard()">📋 Copy</button>
+      </div>
+    </div>
+
+    <div class="calendar-section">
+      <div class="calendar-header">
+        <h2 id="monthTitle">March 2025</h2>
+        <div class="month-nav">
+          <button onclick="previousMonth()" style="padding: 8px 12px; font-size: 12px;">← Prev</button>
+          <button onclick="nextMonth()" style="padding: 8px 12px; font-size: 12px;">Next →</button>
+        </div>
+      </div>
+
+      <div class="calendar-grid" id="calendarGrid"></div>
+
+      <div class="streak-info">
+        <p>Current Streak</p>
+        <div class="streak-number" id="streakInfo">0</div>
+        <p id="streakMessage">Start reading today!</p>
+      </div>
+    </div>
+
+    <div class="counter">
+      Total facts read: <span id="factCount">0</span>
+    </div>
+  </div>
+
+  <script>
+    const facts = [
+      {
+        text: "The impostor syndrome was first documented in 1978. Women report it 50% more often than men, partly due to systemic underestimation of women's competence.",
+        category: "Psychology",
+        source: "Clinical Psychology Review"
+      },
+      {
+        text: "Women's historical exclusion from medical research created a 'female health gap.' Aspirin trials, cardiac studies, and drug testing used predominantly male subjects. We now know women metabolize many medications differently and experience heart attacks with atypical symptoms.",
+        category: "Medicine",
+        source: "Gender Medicine"
+      },
+      {
+        text: "By age 6, girls internalize the stereotype that math is 'for boys.' This single belief measurably reduces their math performance.",
+        category: "Psychology",
+        source: "Developmental Psychology"
+      },
+      {
+        text: "Curcumin, an active compound in turmeric, shows promise in clinical trials for depression—comparable to some SSRIs yet with fewer side effects. Ancient medicine knew turmeric as anti-inflammatory; modern neuroscience is proving why.",
+        category: "Medicine",
+        source: "Psychopharmacology"
+      },
+      {
+        text: "Women with children are 50% less likely to be hired than childless women with identical CVs. Men with children suffer no penalty.",
+        category: "Feminism",
+        source: "Organizational Psychology"
+      },
+      {
+        text: "Psilocybin (magic mushrooms) shows 50-70% remission rates in treatment-resistant depression after just one or two doses. It works through neuroplasticity—creating new neural connections rather than merely balancing serotonin.",
+        category: "Medicine",
+        source: "Psychedelic Research"
+      },
+      {
+        text: "Women report pain intensity identically to men but receive less pain medication. Doctors subconsciously attribute women's pain to emotion rather than physiology.",
+        category: "Medicine",
+        source: "Gender Medicine"
+      },
+      {
+        text: "Boys overestimate their abilities by 30% while girls underestimate theirs by 30%—regardless of actual performance. This gap predicts career choices and earnings decades later.",
+        category: "Psychology",
+        source: "Developmental Neuroscience"
+      },
+      {
+        text: "Oxytocin amplifies in-group bias and distrust of outsiders. Women and men show different oxytocin responses, revealing gender variation in social processing.",
+        category: "Psychology",
+        source: "Neuroendocrinology"
+      },
+      {
+        text: "Economic autonomy correlates with measurable changes in stress response and decision-making confidence, documented since second-wave feminism gains in the 1960s-80s.",
+        category: "Feminism",
+        source: "Psychosocial History"
+      },
+      {
+        text: "Women navigating workplace expectations while facing gender stereotypes experience chronic cognitive dissonance, contributing to higher rates of anxiety disorders.",
+        category: "Psychology",
+        source: "Social Psychology"
+      },
+      {
+        text: "Ashwagandha reduces cortisol (stress hormone) by 28% in clinical trials and improves anxiety scores comparable to some anti-anxiety medications.",
+        category: "Medicine",
+        source: "Phytopharmacology"
+      },
+      {
+        text: "Women ask for raises 4x less often than men. Yet when they do ask, they're penalized socially while men are rewarded.",
+        category: "Feminism",
+        source: "Organizational Behavior"
+      },
+      {
+        text: "Menopause is a neurological transition affecting serotonin and dopamine. Hot flashes activate the same brain regions as panic attacks. These symptoms are biological, not psychological.",
+        category: "Medicine",
+        source: "Neurology & Endocrinology"
+      },
+      {
+        text: "Women have slightly more active mirror neuron systems than men, contributing to empathy advantages. Empathy is partly neurological, not merely socialized.",
+        category: "Psychology",
+        source: "Social Neuroscience"
+      },
+      {
+        text: "Endometriosis affects 176 million women globally yet took 40+ years to get funding for research. This 'knowledge gap' meant women suffered with dismissed symptoms for decades.",
+        category: "Feminism",
+        source: "Medical History"
+      },
+      {
+        text: "People interpret identical behavior differently based on gender: assertiveness is 'leadership' in men, 'aggression' in women. Awareness of this bias reduces it measurably.",
+        category: "Psychology",
+        source: "Cognitive Psychology"
+      },
+      {
+        text: "Women are twice as likely to develop anxiety disorders. Emerging research suggests sex differences in how cannabinoid receptors function in the female brain.",
+        category: "Medicine",
+        source: "Psychopharmacology"
+      },
+      {
+        text: "Motherhood reduces earnings by ~5% per child. Fathers face no penalty; they earn slightly more. Discrimination is gendered—motherhood is penalized, parenthood itself is not.",
+        category: "Feminism",
+        source: "Labor Economics & Psychology"
+      },
+      {
+        text: "Neuroplasticity peaks in adolescence. Girls with eating disorders show different brain activation in reward regions when viewing food.",
+        category: "Psychology",
+        source: "Neuroscience of Eating Disorders"
+      },
+      {
+        text: "The wage gap widens with age. By retirement, women earn roughly 35% less than men over their lifetime despite equal qualifications.",
+        category: "Feminism",
+        source: "Economic Data"
+      },
+      {
+        text: "Dopamine responds differently in male and female brains. Women show lower dopamine reward sensitivity, affecting motivation and risk-taking behavior.",
+        category: "Psychology",
+        source: "Neuropharmacology"
+      },
+      {
+        text: "Hormonal contraceptives alter the brain's processing of emotional faces and threat detection. The effects vary by individual neurobiology.",
+        category: "Medicine",
+        source: "Neuroendocrinology"
+      },
+      {
+        text: "Women interrupt less in conversations but are interrupted more. This pattern reinforces power dynamics even in academic and professional settings.",
+        category: "Feminism",
+        source: "Sociolinguistics"
+      },
+      {
+        text: "Sleep patterns differ between sexes. Women need slightly more sleep and are more affected by circadian rhythm disruptions, partly due to hormonal fluctuations.",
+        category: "Medicine",
+        source: "Sleep Medicine"
+      },
+      {
+        text: "The orgasm gap—the difference in frequency between partners—correlates with relationship inequality. More egalitarian partnerships show reduced gaps.",
+        category: "Psychology",
+        source: "Relationship Science"
+      },
+      {
+        text: "Women's voices are judged as less authoritative even when saying identical words. Pitch, not content, drives perception of competence.",
+        category: "Feminism",
+        source: "Speech Science"
+      },
+      {
+        text: "Estrogen enhances memory formation. Fluctuations throughout the menstrual cycle affect cognitive performance variability in some women.",
+        category: "Medicine",
+        source: "Cognitive Neuroscience"
+      },
+      {
+        text: "Women are 40% more likely to develop PTSD after trauma. The female brain's stress response system differs, making recovery harder.",
+        category: "Psychology",
+        source: "Trauma Psychology"
+      },
+      {
+        text: "Female leadership is judged by different standards. Same behaviors labeled 'assertive' in men are called 'bossy' or 'emotional' in women.",
+        category: "Feminism",
+        source: "Organizational Psychology"
+      }
+    ];
+
+    function getDayOfYear() {
+      const today = new Date();
+      const start = new Date(today.getFullYear(), 0, 0);
+      const diff = today - start;
+      const oneDay = 1000 * 60 * 60 * 24;
+      return Math.floor(diff / oneDay);
+    }
+
+    function getTodaysFact() {
+      const dayIndex = getDayOfYear() % facts.length;
+      return facts[dayIndex];
+    }
+
+    function displayFact(fact) {
+      document.getElementById('factText').textContent = fact.text;
+      document.getElementById('categoryBadge').textContent = fact.category;
+      document.getElementById('factSource').textContent = `— ${fact.source}`;
+    }
+
+    function generateNewFact() {
+      const randomFact = facts[Math.floor(Math.random() * facts.length)];
+      displayFact(randomFact);
+      updateCounter();
+      animateCard();
+    }
+
+    function animateCard() {
+      const card = document.querySelector('.fact-card');
+      card.style.animation = 'none';
+      setTimeout(() => {
+        card.style.animation = 'slideUp 0.6s ease-out';
+      }, 10);
+    }
+
+    function updateCounter() {
+      const count = parseInt(localStorage.getItem('factCount') || '0');
+      localStorage.setItem('factCount', count + 1);
+      document.getElementById('factCount').textContent = count + 1;
+    }
+
+    function copyToClipboard() {
+      const fact = document.getElementById('factText').innerText;
+      const source = document.getElementById('factSource').innerText;
+      const fullText = `${fact}\n\n${source}`;
+      
+      navigator.clipboard.writeText(fullText).then(() => {
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 2000);
+      });
+    }
+
+    function getCheckedDates() {
+      return JSON.parse(localStorage.getItem('checkedDates') || '[]');
+    }
+
+    function saveDateAsChecked(date) {
+      const checked = getCheckedDates();
+      const dateStr = date.toISOString().split('T')[0];
+      if (!checked.includes(dateStr)) {
+        checked.push(dateStr);
+      }
+      localStorage.setItem('checkedDates', JSON.stringify(checked));
+    }
+
+    function isDateChecked(date) {
+      const dateStr = date.toISOString().split('T')[0];
+      return getCheckedDates().includes(dateStr);
+    }
+
+    function checkTodayOff() {
+      const today = new Date();
+      saveDateAsChecked(today);
+      updateCounter();
+      updateCheckedButton();
+      renderCalendar(currentDate);
+      updateStreak();
+      animateCard();
+    }
+
+    function updateCheckedButton() {
+      const btn = document.getElementById('checkBtn');
+      const today = new Date();
+      if (isDateChecked(today)) {
+        btn.classList.add('checked');
+        btn.textContent = '✓ Got It! (Today)';
+      } else {
+        btn.classList.remove('checked');
+        btn.textContent = '✓ Got It!';
+      }
+    }
+
+    function calculateStreak() {
+      const checked = getCheckedDates().map(d => new Date(d + 'T00:00:00'));
+      if (checked.length === 0) return 0;
+
+      checked.sort((a, b) => b - a);
+      let streak = 0;
+      let currentDate = new Date();
+      currentDate.setHours(0, 0, 0, 0);
+
+      for (const checkedDate of checked) {
+        const diffTime = Math.abs(currentDate - checkedDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        if (diffDays === streak) {
+          streak++;
+        } else {
+          break;
+        }
+      }
+
+      return streak;
+    }
+
+    function updateStreak() {
+      const streak = calculateStreak();
+      document.getElementById('streakCount').textContent = streak;
+      document.getElementById('streakInfo').textContent = streak;
+      
+      if (streak === 0) {
+        document.getElementById('streakMessage').textContent = 'Start reading today!';
+      } else if (streak === 1) {
+        document.getElementById('streakMessage').textContent = 'Amazing start! Keep it up 💪';
+      } else if (streak < 7) {
+        document.getElementById('streakMessage').textContent = `${streak} days strong! Almost a week 🔥`;
+      } else if (streak < 30) {
+        document.getElementById('streakMessage').textContent = `${streak} days! You're unstoppable 🚀`;
+      } else {
+        document.getElementById('streakMessage').textContent = `${streak} days! You're a legend! 👑`;
+      }
+    }
+
+    let currentDate = new Date();
+
+    function previousMonth() {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      renderCalendar(currentDate);
+    }
+
+    function nextMonth() {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      renderCalendar(currentDate);
+    }
+
+    function renderCalendar(date) {
+      const year = date.getFullYear();
+      const month = date.getMonth();
+
+      const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'];
+      document.getElementById('monthTitle').textContent = `${monthNames[month]} ${year}`;
+
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const daysInMonth = lastDay.getDate();
+      const startingDayOfWeek = firstDay.getDay();
+
+      const grid = document.getElementById('calendarGrid');
+      grid.innerHTML = '';
+
+      const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      dayLabels.forEach(day => {
+        const label = document.createElement('div');
+        label.className = 'day-label';
+        label.textContent = day;
+        grid.appendChild(label);
+      });
+
+      for (let i = 0; i < startingDayOfWeek; i++) {
+        const empty = document.createElement('div');
+        empty.className = 'day-box empty';
+        grid.appendChild(empty);
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dayBox = document.createElement('div');
+        const checkDate = new Date(year, month, day);
+        
+        dayBox.className = 'day-box';
+        dayBox.textContent = day;
+
+        if (isDateChecked(checkDate)) {
+          dayBox.classList.add('checked');
+        }
+
+        dayBox.onclick = () => {
+          if (isDateChecked(checkDate)) {
+            const checked = getCheckedDates().filter(d => d !== checkDate.toISOString().split('T')[0]);
+            localStorage.setItem('checkedDates', JSON.stringify(checked));
+          } else {
+            saveDateAsChecked(checkDate);
+          }
+          renderCalendar(currentDate);
+          updateStreak();
+          updateCheckedButton();
+        };
+
+        grid.appendChild(dayBox);
+      }
+    }
+
+    function updateDateDisplay() {
+      const today = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('dateDisplay').textContent = today.toLocaleDateString('en-US', options);
+    }
+
+    function initCounter() {
+      const count = localStorage.getItem('factCount') || '0';
+      document.getElementById('factCount').textContent = count;
+    }
+
+    // Initialize
+    window.addEventListener('load', () => {
+      updateDateDisplay();
+      displayFact(getTodaysFact());
+      initCounter();
+      currentDate = new Date();
+      renderCalendar(currentDate);
+      updateStreak();
+      updateCheckedButton();
+    });
+  </script>
+</body>
+</html>

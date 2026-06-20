@@ -438,540 +438,520 @@
 
   <script>
     const facts = [
+      // ============================================================
+      // PSYCHOLOGY — purely psychological phenomena
+      // ============================================================
       {
-        text: "The impostor syndrome was first documented in 1978. Women report it 50% more often than men, partly due to systemic underestimation of women's competence.",
-        category: "Psychology",
-        source: "Clinical Psychology Review"
-      },
-      {
-        text: "Women's historical exclusion from medical research created a 'female health gap.' Aspirin trials, cardiac studies, and drug testing used predominantly male subjects. We now know women metabolize many medications differently and experience heart attacks with atypical symptoms.",
-        category: "Medicine",
-        source: "Gender Medicine"
-      },
-      {
-        text: "By age 6, girls internalize the stereotype that math is 'for boys.' This single belief measurably reduces their math performance.",
-        category: "Psychology",
-        source: "Developmental Psychology"
-      },
-      {
-        text: "Curcumin, an active compound in turmeric, shows promise in clinical trials for depression—comparable to some SSRIs yet with fewer side effects. Ancient medicine knew turmeric as anti-inflammatory; modern neuroscience is proving why.",
-        category: "Medicine",
-        source: "Psychopharmacology"
-      },
-      {
-        text: "Women with children are 50% less likely to be hired than childless women with identical CVs. Men with children suffer no penalty.",
-        category: "Feminism",
-        source: "Organizational Psychology"
-      },
-      {
-        text: "Psilocybin (magic mushrooms) shows 50-70% remission rates in treatment-resistant depression after just one or two doses. It works through neuroplasticity—creating new neural connections rather than merely balancing serotonin.",
-        category: "Medicine",
-        source: "Psychedelic Research"
-      },
-      {
-        text: "Women report pain intensity identically to men but receive less pain medication. Doctors subconsciously attribute women's pain to emotion rather than physiology.",
-        category: "Medicine",
-        source: "Gender Medicine"
-      },
-      {
-        text: "Boys overestimate their abilities by 30% while girls underestimate theirs by 30%—regardless of actual performance. This gap predicts career choices and earnings decades later.",
-        category: "Psychology",
-        source: "Developmental Neuroscience"
-      },
-      {
-        text: "Oxytocin amplifies in-group bias and distrust of outsiders. Women and men show different oxytocin responses, revealing gender variation in social processing.",
-        category: "Psychology",
-        source: "Neuroendocrinology"
-      },
-      {
-        text: "Economic autonomy correlates with measurable changes in stress response and decision-making confidence, documented since second-wave feminism gains in the 1960s-80s.",
-        category: "Feminism",
-        source: "Psychosocial History"
-      },
-      {
-        text: "Women navigating workplace expectations while facing gender stereotypes experience chronic cognitive dissonance, contributing to higher rates of anxiety disorders.",
-        category: "Psychology",
-        source: "Social Psychology"
-      },
-      {
-        text: "Ashwagandha reduces cortisol (stress hormone) by 28% in clinical trials and improves anxiety scores comparable to some anti-anxiety medications.",
-        category: "Medicine",
-        source: "Phytopharmacology"
-      },
-      {
-        text: "Women ask for raises 4x less often than men. Yet when they do ask, they're penalized socially while men are rewarded.",
-        category: "Feminism",
-        source: "Organizational Behavior"
-      },
-      {
-        text: "Menopause is a neurological transition affecting serotonin and dopamine. Hot flashes activate the same brain regions as panic attacks. These symptoms are biological, not psychological.",
-        category: "Medicine",
-        source: "Neurology & Endocrinology"
-      },
-      {
-        text: "Women have slightly more active mirror neuron systems than men, contributing to empathy advantages. Empathy is partly neurological, not merely socialized.",
-        category: "Psychology",
-        source: "Social Neuroscience"
-      },
-      {
-        text: "Endometriosis affects 176 million women globally yet took 40+ years to get funding for research. This 'knowledge gap' meant women suffered with dismissed symptoms for decades.",
-        category: "Feminism",
-        source: "Medical History"
-      },
-      {
-        text: "People interpret identical behavior differently based on gender: assertiveness is 'leadership' in men, 'aggression' in women. Awareness of this bias reduces it measurably.",
-        category: "Psychology",
-        source: "Cognitive Psychology"
-      },
-      {
-        text: "Women are twice as likely to develop anxiety disorders. Emerging research suggests sex differences in how cannabinoid receptors function in the female brain.",
-        category: "Medicine",
-        source: "Psychopharmacology"
-      },
-      {
-        text: "Motherhood reduces earnings by ~5% per child. Fathers face no penalty; they earn slightly more. Discrimination is gendered—motherhood is penalized, parenthood itself is not.",
-        category: "Feminism",
-        source: "Labor Economics & Psychology"
-      },
-      {
-        text: "Neuroplasticity peaks in adolescence. Girls with eating disorders show different brain activation in reward regions when viewing food.",
-        category: "Psychology",
-        source: "Neuroscience of Eating Disorders"
-      },
-      {
-        text: "The wage gap widens with age. By retirement, women earn roughly 35% less than men over their lifetime despite equal qualifications.",
-        category: "Feminism",
-        source: "Economic Data"
-      },
-      {
-        text: "Dopamine responds differently in male and female brains. Women show lower dopamine reward sensitivity, affecting motivation and risk-taking behavior.",
-        category: "Psychology",
-        source: "Neuropharmacology"
-      },
-      {
-        text: "Hormonal contraceptives alter the brain's processing of emotional faces and threat detection. The effects vary by individual neurobiology.",
-        category: "Medicine",
-        source: "Neuroendocrinology"
-      },
-      {
-        text: "Women interrupt less in conversations but are interrupted more. This pattern reinforces power dynamics even in academic and professional settings.",
-        category: "Feminism",
-        source: "Sociolinguistics"
-      },
-      {
-        text: "Sleep patterns differ between sexes. Women need slightly more sleep and are more affected by circadian rhythm disruptions, partly due to hormonal fluctuations.",
-        category: "Medicine",
-        source: "Sleep Medicine"
-      },
-      {
-        text: "The orgasm gap—the difference in frequency between partners—correlates with relationship inequality. More egalitarian partnerships show reduced gaps.",
-        category: "Psychology",
-        source: "Relationship Science"
-      },
-      {
-        text: "Women's voices are judged as less authoritative even when saying identical words. Pitch, not content, drives perception of competence.",
-        category: "Feminism",
-        source: "Speech Science"
-      },
-      {
-        text: "Estrogen enhances memory formation. Fluctuations throughout the menstrual cycle affect cognitive performance variability in some women.",
-        category: "Medicine",
-        source: "Cognitive Neuroscience"
-      },
-      {
-        text: "Women are 40% more likely to develop PTSD after trauma. The female brain's stress response system differs, making recovery harder.",
-        category: "Psychology",
-        source: "Trauma Psychology"
-      },
-      {
-        text: "Female leadership is judged by different standards. Same behaviors labeled 'assertive' in men are called 'bossy' or 'emotional' in women.",
-        category: "Feminism",
-        source: "Organizational Psychology"
-      },
-      {
-        text: "Women's brains have more gray matter in language and emotional processing areas, while men's have more white matter. These structural differences don't determine intelligence—they explain differences in cognitive style.",
-        category: "Psychology",
-        source: "Neuroscience Letters"
-      },
-      {
-        text: "Sertraline and other SSRIs metabolize differently in women, affecting efficacy and side effects. Yet most clinical trials used male-biased samples, leading to inappropriate dosing guidelines.",
-        category: "Medicine",
-        source: "Pharmacogenomics Journal"
-      },
-      {
-        text: "Women in STEM fields face 'stereotype threat'—awareness of negative stereotypes about women in science reduces cognitive performance by up to 20 points on standardized tests.",
+        text: "The 'spotlight effect' means we consistently overestimate how much other people notice our appearance, mistakes, and behaviour. Most of the time, nobody is watching as closely as you think.",
         category: "Psychology",
         source: "Journal of Personality and Social Psychology"
       },
       {
-        text: "Cardiovascular disease kills more women than breast cancer, yet women are less likely to receive aggressive treatment and are often misdiagnosed.",
+        text: "The brain can't truly multitask. It rapidly switches between tasks, and this switching can reduce productivity by up to 40% while increasing errors.",
+        category: "Psychology",
+        source: "American Psychological Association"
+      },
+      {
+        text: "The 'Zeigarnik effect': unfinished or interrupted tasks stay in your memory far more persistently than completed ones. It's why a to-do list quiets a busy mind.",
+        category: "Psychology",
+        source: "Psychological Research"
+      },
+      {
+        text: "The 'mere exposure effect' means we tend to like things more simply because we've encountered them repeatedly — no positive experience required, just familiarity.",
+        category: "Psychology",
+        source: "Journal of Personality and Social Psychology"
+      },
+      {
+        text: "The 'peak-end rule': we judge an experience mostly by how it felt at its most intense moment and at its end, not by the average of every moment.",
+        category: "Psychology",
+        source: "Cognition & Emotion"
+      },
+      {
+        text: "The Dunning-Kruger effect describes how people with the least skill in an area often overestimate their competence the most, because they lack the knowledge to see their gaps.",
+        category: "Psychology",
+        source: "Journal of Personality and Social Psychology"
+      },
+      {
+        text: "Loss aversion means losing something feels roughly twice as painful as gaining the same thing feels good. This asymmetry shapes most of our risk decisions.",
+        category: "Psychology",
+        source: "Econometrica"
+      },
+      {
+        text: "Flow state — total absorption in a task — distorts your sense of time, quiets self-criticism, and produces some of the most productive and satisfying work humans do.",
+        category: "Psychology",
+        source: "Flow: The Psychology of Optimal Experience"
+      },
+      {
+        text: "The 'Benjamin Franklin effect': asking someone for a small favour can make them like you more, because the mind rationalises the help as evidence they value you.",
+        category: "Psychology",
+        source: "Human Relations"
+      },
+      {
+        text: "Cognitive dissonance is the mental discomfort of holding two conflicting beliefs. We resolve it not with logic but by quietly changing one belief to restore harmony.",
+        category: "Psychology",
+        source: "A Theory of Cognitive Dissonance"
+      },
+      {
+        text: "The 'bystander effect': the more people present during an emergency, the less likely any single person is to help, because responsibility feels diffused across the crowd.",
+        category: "Psychology",
+        source: "Journal of Personality and Social Psychology"
+      },
+      {
+        text: "Anchoring bias means the first number you hear sets a mental reference point that skews every later judgment — even when that first number is completely arbitrary.",
+        category: "Psychology",
+        source: "Science"
+      },
+      {
+        text: "The 'Pratfall effect': a competent person actually becomes more likeable after a small, harmless blunder, because the flaw makes them feel more human and relatable.",
+        category: "Psychology",
+        source: "Psychonomic Science"
+      },
+      {
+        text: "Negativity bias means bad events grab our attention and stick in memory more strongly than equally good ones. It's an ancient survival instinct, not pessimism.",
+        category: "Psychology",
+        source: "Review of General Psychology"
+      },
+      {
+        text: "Decision fatigue is real: after a long run of choices, the quality of your decisions deteriorates, which is why important decisions are best made early in the day.",
+        category: "Psychology",
+        source: "PNAS"
+      },
+      {
+        text: "The 'false consensus effect': we tend to assume our own opinions, habits, and choices are far more common than they actually are.",
+        category: "Psychology",
+        source: "Journal of Experimental Social Psychology"
+      },
+      {
+        text: "Memory is reconstructive, not a recording. Each time you recall an event, your brain subtly rewrites it, which is why confident memories can still be wrong.",
+        category: "Psychology",
+        source: "Nature Reviews Neuroscience"
+      },
+      {
+        text: "The 'Pygmalion effect': when people are expected to perform well, they often rise to meet that expectation, because subtle cues shape how they're treated and motivated.",
+        category: "Psychology",
+        source: "Pygmalion in the Classroom"
+      },
+      {
+        text: "The 'Tetris effect' shows how intense, repeated activity bleeds into the mind — players report seeing falling blocks in their dreams and mental imagery for days afterward.",
+        category: "Psychology",
+        source: "Science"
+      },
+      {
+        text: "Smiling, even when forced, can genuinely lift your mood. The facial-feedback hypothesis suggests the act of smiling sends 'happy' signals back to the brain.",
+        category: "Psychology",
+        source: "Psychological Science"
+      },
+      // ============================================================
+      // MEDICINE — purely the human body and how it works
+      // ============================================================
+      {
+        text: "Your body produces roughly 25 million new cells every second. In the time it takes to read this sentence, you've made more cells than there are people in a large city.",
+        category: "Medicine",
+        source: "Molecular Biology of the Cell"
+      },
+      {
+        text: "The lining of your stomach replaces itself every 3 to 4 days. Without this constant renewal, the stomach's own acid would begin to digest it.",
+        category: "Medicine",
+        source: "Gastroenterology"
+      },
+      {
+        text: "Gram for gram, human bone is stronger than steel. A block of bone the size of a matchbox can support up to 9 tonnes of weight.",
+        category: "Medicine",
+        source: "Journal of Biomechanics"
+      },
+      {
+        text: "The liver is the only human organ that can fully regenerate. It can regrow to its original size from as little as 25% of its remaining tissue.",
+        category: "Medicine",
+        source: "Hepatology"
+      },
+      {
+        text: "Your heart beats about 100,000 times a day, pumping roughly 7,500 litres of blood — enough to fill a small swimming pool every week.",
         category: "Medicine",
         source: "American Heart Association"
       },
       {
-        text: "Women entrepreneurs receive 0.2% of venture capital funding despite starting businesses at higher rates than men. Investment bias directly constrains economic opportunity.",
-        category: "Feminism",
-        source: "Crunchbase"
-      },
-      {
-        text: "The 'second shift'—unpaid domestic work—averages 14.5 more hours per week for women than men, reducing time for career advancement and leisure.",
-        category: "Feminism",
-        source: "Sociology of Work"
-      },
-      {
-        text: "Women's pain from conditions like fibromyalgia or IBS is more often attributed to psychological factors, delaying diagnosis by an average of 5-10 years.",
+        text: "Stomach acid is mostly hydrochloric acid with a pH around 1.5, strong enough to dissolve metal. A protective mucus layer is all that stops it from harming you.",
         category: "Medicine",
-        source: "Journal of Women's Health"
+        source: "Physiological Reviews"
       },
       {
-        text: "Testosterone increases risk-taking behavior in both sexes. Gender differences in financial risk reflect socialization and opportunity, not biology.",
-        category: "Psychology",
-        source: "Experimental Economics"
+        text: "Fever is a defence mechanism, not a malfunction. A raised body temperature slows the reproduction of many bacteria and viruses while boosting immune activity.",
+        category: "Medicine",
+        source: "Nature Reviews Immunology"
       },
       {
-        text: "Women doctors earn 30% less than male doctors for identical work. The gap widens with seniority and worsens in competitive specialties.",
+        text: "The cornea of your eye has no blood vessels at all. It draws oxygen directly from the air, which is one reason eyes need to stay moist.",
+        category: "Medicine",
+        source: "Investigative Ophthalmology & Visual Science"
+      },
+      {
+        text: "The placebo effect can produce real, measurable changes in the body, including genuine pain relief, simply from the brain's expectation of treatment.",
+        category: "Medicine",
+        source: "The Lancet"
+      },
+      {
+        text: "If you unfolded all the tiny villi lining your small intestine, the absorptive surface would cover an area roughly the size of a tennis court.",
+        category: "Medicine",
+        source: "Scandinavian Journal of Gastroenterology"
+      },
+      {
+        text: "Red blood cells have no nucleus, so they can't repair themselves. They survive about 120 days before the spleen recycles them.",
+        category: "Medicine",
+        source: "Blood"
+      },
+      {
+        text: "The human nose can distinguish more than a trillion distinct smells — far more than the few thousand once assumed by scientists.",
+        category: "Medicine",
+        source: "Science"
+      },
+      {
+        text: "Your brain is about 2% of your body weight but uses around 20% of your total energy, mostly to keep neurons firing and signalling.",
+        category: "Medicine",
+        source: "Journal of Cerebral Blood Flow & Metabolism"
+      },
+      {
+        text: "A sneeze can leave the body at speeds of up to 100 miles per hour, expelling droplets several metres into the air.",
+        category: "Medicine",
+        source: "Journal of Fluid Mechanics"
+      },
+      {
+        text: "Saliva contains opiorphin, a natural painkiller that is, gram for gram, several times more potent than morphine in laboratory tests.",
+        category: "Medicine",
+        source: "PNAS"
+      },
+      {
+        text: "Your lungs contain around 300 million tiny air sacs called alveoli. Spread flat, their combined surface area would be roughly 70 square metres.",
+        category: "Medicine",
+        source: "Respiratory Physiology"
+      },
+      {
+        text: "Tooth enamel is the hardest substance your body makes — harder than bone — but unlike bone, it has no living cells and cannot regenerate once lost.",
+        category: "Medicine",
+        source: "Journal of Dental Research"
+      },
+      {
+        text: "Goosebumps are a leftover reflex from our furrier ancestors. The same muscles that once fluffed up fur for warmth or threat now just give us bumps.",
+        category: "Medicine",
+        source: "Cell"
+      },
+      {
+        text: "You carry roughly as many bacterial cells as human cells. This microbiome helps digest food, train your immune system, and even influence mood.",
+        category: "Medicine",
+        source: "PLOS Biology"
+      },
+      {
+        text: "The human body gives off a faint glow from chemical reactions in its cells — true bioluminescence, but about 1,000 times too weak for the eye to detect.",
+        category: "Medicine",
+        source: "PLOS ONE"
+      },
+      // ============================================================
+      // FEMINISM — milestones and pioneers in women's history
+      // ============================================================
+      {
+        text: "New Zealand became the first self-governing country to grant women the right to vote, in 1893 — 27 years before the United States.",
         category: "Feminism",
-        source: "JAMA"
+        source: "New Zealand History"
       },
       {
-        text: "Progesterone affects the GABA neurotransmitter system, explaining why some women experience worsening anxiety before menstruation. This is neurological, not imagined.",
-        category: "Medicine",
-        source: "Neuroscience & Biobehavioral Reviews"
-      },
-      {
-        text: "Girls' self-esteem drops sharply around age 11-12, particularly in academic domains. Early intervention can prevent decades of confidence gaps.",
-        category: "Psychology",
-        source: "Developmental Psychology"
-      },
-      {
-        text: "Women face 'prove-it-again' bias—they must repeatedly demonstrate competence while men's competence is assumed after initial proof.",
+        text: "Marie Curie remains the only person to win Nobel Prizes in two different sciences — Physics in 1903 and Chemistry in 1911.",
         category: "Feminism",
-        source: "Cornell Law Review"
+        source: "The Nobel Prize"
       },
       {
-        text: "Estradiol fluctuations affect glutamate and serotonin, influencing mood stability across the menstrual cycle. Tracking these patterns can improve mental health care.",
-        category: "Medicine",
-        source: "Frontiers in Psychiatry"
-      },
-      {
-        text: "Women's autobiographical memory is more detailed and emotionally vivid than men's. This isn't weakness—it's neurologically distinct processing.",
-        category: "Psychology",
-        source: "Memory"
-      },
-      {
-        text: "Maternal mortality rates in the US are 3x higher for Black women than white women, reflecting systemic healthcare bias and social determinants.",
+        text: "Ada Lovelace wrote what is widely regarded as the first computer algorithm in the 1840s, a century before the first electronic computers existed.",
         category: "Feminism",
-        source: "CDC"
+        source: "Computer History Museum"
       },
       {
-        text: "Anxiety disorders in women often manifest differently—as stomach pain, fatigue, or muscle tension—making them harder to recognize and diagnose.",
-        category: "Medicine",
-        source: "Gender Medicine"
-      },
-      {
-        text: "Men speak 7.5 more times than women in meetings of equal size and seniority. When women speak proportionally to their numbers, they're perceived as dominating.",
+        text: "Until the Equal Credit Opportunity Act of 1974, banks in the US could legally refuse a woman a credit card unless a man co-signed for her.",
         category: "Feminism",
-        source: "Harvard Business Review"
+        source: "US Federal Reserve History"
       },
       {
-        text: "Women's immune systems are stronger than men's—autoimmune diseases are 2-3x more common in women because their immune systems mount more vigorous responses.",
-        category: "Medicine",
-        source: "Nature Immunology"
-      },
-      {
-        text: "Gender expectations begin in infancy. Infant girls and boys cry equally, but parents respond differently, shaping emotional expression over decades.",
-        category: "Psychology",
-        source: "Developmental Psychology"
-      },
-      {
-        text: "Women over 50 report career resilience and mastery satisfaction that younger women don't. Longevity data shows women thrive when freed from caregiving demands.",
-        category: "Psychology",
-        source: "Gerontology & Geriatrics"
-      },
-      {
-        text: "Lupus affects women 9x more than men. This isn't understood mechanistically—sex hormones amplify immune responses in ways not yet fully explained.",
-        category: "Medicine",
-        source: "Arthritis & Rheumatism"
-      },
-      {
-        text: "Women interrupt themselves more than men do, and are interrupted by others more frequently. This patterns reinforces self-doubt and reduces credit for ideas.",
+        text: "Katherine Johnson's hand calculations were so trusted that astronaut John Glenn asked her to personally verify the computer's numbers before his 1962 orbit.",
         category: "Feminism",
-        source: "Conversation Analysis"
+        source: "NASA"
       },
       {
-        text: "The 'halo effect' is gendered. Competent men are seen as likeable; competent women are seen as cold. Women face a likeability penalty for success.",
-        category: "Psychology",
-        source: "Social Psychology Quarterly"
-      },
-      {
-        text: "Women with ADHD are underdiagnosed because symptoms present differently—internalized as shame, anxiety, or perfectionism rather than hyperactivity.",
-        category: "Medicine",
-        source: "Journal of Attention Disorders"
-      },
-      {
-        text: "Gender socialization causes women to prioritize others' comfort over their own boundaries. Boundary-setting in adulthood requires unlearning childhood conditioning.",
-        category: "Psychology",
-        source: "Gender Studies"
-      },
-      {
-        text: "Women's retirement income is 26% lower than men's, reflecting lower lifetime earnings and pension gaps. This persists even among equal-career couples.",
+        text: "The first women's rights convention in the US was held at Seneca Falls, New York, in 1848, producing the Declaration of Sentiments.",
         category: "Feminism",
-        source: "Social Security Administration"
+        source: "National Park Service"
       },
       {
-        text: "Migraines affect women 3x more often than men, with hormonal fluctuations as a primary trigger. Menstrual migraine is a distinct disease entity.",
-        category: "Medicine",
-        source: "Headache: The Journal"
-      },
-      {
-        text: "Women in male-dominated fields experience 'identity threat'—awareness of being a minority reduces working memory and increases cognitive load.",
-        category: "Psychology",
-        source: "Social Cognition"
-      },
-      {
-        text: "Women's work is systematically undervalued. Fields that become female-dominated experience wage stagnation relative to male-dominated fields.",
+        text: "Hedy Lamarr, a Hollywood film star, co-invented a frequency-hopping system during WWII that became a foundation for modern Wi-Fi, GPS, and Bluetooth.",
         category: "Feminism",
-        source: "Sociology of Work"
+        source: "National Inventors Hall of Fame"
       },
       {
-        text: "Postpartum depression occurs in 15-20% of women and is often missed because symptoms are normalized as 'baby blues.' Early screening saves lives.",
-        category: "Medicine",
-        source: "American Psychiatric Association"
-      },
-      {
-        text: "Women apologize more frequently than men, even when not responsible. Apology frequency correlates with socialization, not guilt.",
-        category: "Psychology",
-        source: "Sociolinguistics"
-      },
-      {
-        text: "Women hold only 10% of Fortune 500 CEO positions despite earning more college degrees. The barrier is structural, not merit-based.",
+        text: "Wangari Maathai became the first African woman to win the Nobel Peace Prize in 2004, for founding a movement that planted over 30 million trees.",
         category: "Feminism",
-        source: "Catalyst"
+        source: "The Nobel Prize"
       },
       {
-        text: "Autoimmune thyroid disease affects women 5-8x more than men. Estrogen's modulatory effects on immune tolerance explain some—but not all—of this difference.",
-        category: "Medicine",
-        source: "Thyroid"
-      },
-      {
-        text: "Women's friendships are deeper and more reciprocal than men's on average, but socialization pressures women to prioritize romantic relationships over friendships.",
-        category: "Psychology",
-        source: "Developmental Psychology"
-      },
-      {
-        text: "Women face hostile work environments at rates 2x higher than men experience, yet report them less due to fear of retaliation and gaslighting.",
+        text: "When Kathrine Switzer ran the Boston Marathon in 1967, an official tried to physically remove her. Women were officially allowed to enter only in 1972.",
         category: "Feminism",
-        source: "EEOC Data"
+        source: "Boston Athletic Association"
       },
       {
-        text: "Polycystic ovary syndrome (PCOS) affects 1 in 10 women but is often dismissed as 'stress' or 'weight.' Delayed diagnosis leads to complications.",
-        category: "Medicine",
-        source: "Journal of Clinical Endocrinology"
-      },
-      {
-        text: "Women's nonverbal communication is more subtle and context-sensitive. This is adaptive—not a deficit—but can be misread as indecisiveness.",
-        category: "Psychology",
-        source: "Nonverbal Communication Studies"
-      },
-      {
-        text: "Women file more than 50% of divorces. When controlling for logistics and custody, women cite unhappiness twice as often as men.",
+        text: "The 19th Amendment, ratified in 1920, barred US states from denying the vote on the basis of sex after a 72-year campaign by suffragists.",
         category: "Feminism",
-        source: "Journal of Family Issues"
+        source: "US National Archives"
       },
       {
-        text: "Vulvodynia—chronic vulvar pain without visible cause—affects 8% of women and is often dismissed or misdiagnosed as psychological.",
-        category: "Medicine",
-        source: "American Journal of Obstetrics & Gynecology"
-      },
-      {
-        text: "Women's social resilience is often mistaken for emotional weakness. Female friendship networks are actually more protective against adversity than male networks.",
-        category: "Psychology",
-        source: "Social Psychology Review"
-      },
-      {
-        text: "Women represent only 3% of corporate board seats globally. Quota systems in some countries have shown that qualified female leaders exist—barriers are structural.",
+        text: "Junko Tabei of Japan became the first woman to reach the summit of Mount Everest in 1975, after surviving an avalanche days earlier on the climb.",
         category: "Feminism",
-        source: "McKinsey"
+        source: "Royal Geographical Society"
       },
       {
-        text: "Pregnancy and childbirth trigger permanent neurological changes—increased gray matter in caregiving regions, enhanced threat detection, and long-term memory shifts.",
-        category: "Medicine",
-        source: "Nature Neuroscience"
-      },
-      {
-        text: "Women experience the 'glass ceiling' effect earlier than men—their advancement slows at middle management levels, while men's continues.",
+        text: "Rosalind Franklin's X-ray photograph, known as 'Photo 51', was pivotal to revealing the double-helix structure of DNA.",
         category: "Feminism",
-        source: "Harvard Business School"
+        source: "Nature"
       },
       {
-        text: "Women's risk of Alzheimer's is nearly twice that of men. Estrogen's neuroprotective effects may explain some risk elevation post-menopause.",
-        category: "Medicine",
-        source: "Lancet Neurology"
-      },
-      {
-        text: "Girls internalize criticism differently—a single negative comment affects their subsequent performance more than boys' performance is affected.",
-        category: "Psychology",
-        source: "Developmental Psychology Review"
-      },
-      {
-        text: "The wage penalty for part-time work is steeper for mothers (20% reduction) than for fathers (7%) or childless women (3%).",
+        text: "Valentina Tereshkova became the first woman in space in 1963, orbiting Earth 48 times — more times than all American astronauts combined at that point.",
         category: "Feminism",
-        source: "American Sociological Review"
+        source: "European Space Agency"
       },
       {
-        text: "Women with chronic illness report higher rates of being gaslit by healthcare providers, delaying treatment and worsening outcomes.",
-        category: "Medicine",
-        source: "Medical Care"
+        text: "Malala Yousafzai became the youngest-ever Nobel laureate at age 17 in 2014, recognised for her campaign for girls' education.",
+        category: "Feminism",
+        source: "The Nobel Prize"
       },
       {
-        text: "Listening to music activates the same reward centers in the brain as food or drugs. Dopamine release from music is measurable and consistent across individuals.",
+        text: "Sirimavo Bandaranaike of Sri Lanka became the world's first elected female head of government in 1960, serving three terms as Prime Minister.",
+        category: "Feminism",
+        source: "Encyclopaedia Britannica"
+      },
+      {
+        text: "The first all-female spacewalk took place in October 2019, when Christina Koch and Jessica Meir worked outside the International Space Station together.",
+        category: "Feminism",
+        source: "NASA"
+      },
+      {
+        text: "Iceland has topped the World Economic Forum's global gender-equality ranking every year since 2009, having closed over 90% of its measured gap.",
+        category: "Feminism",
+        source: "World Economic Forum"
+      },
+      {
+        text: "Saudi Arabia lifted its long-standing ban on women driving in June 2018, making it the last country in the world to do so.",
+        category: "Feminism",
+        source: "BBC News"
+      },
+      {
+        text: "Edith Wharton became the first woman to win the Pulitzer Prize for Fiction in 1921, for her novel 'The Age of Innocence'.",
+        category: "Feminism",
+        source: "The Pulitzer Prizes"
+      },
+      {
+        text: "Bertha von Suttner, whose anti-war writing helped inspire Alfred Nobel, became the first woman to win the Nobel Peace Prize in 1905.",
+        category: "Feminism",
+        source: "The Nobel Prize"
+      },
+      // ============================================================
+      // MUSIC — purely about sound, instruments and listening
+      // ============================================================
+      {
+        text: "Listening to music you love releases dopamine in the brain's reward centres — the same chemical surge linked to food and other deep pleasures.",
         category: "Music",
         source: "Nature Neuroscience"
       },
       {
-        text: "Musicians have larger auditory cortexes and anterior corpus callosum than non-musicians. Musical training physically reshapes the brain, even starting in childhood.",
+        text: "The oldest known musical instrument is a flute carved from a bird bone and mammoth ivory, around 40,000 years old, found in a German cave.",
+        category: "Music",
+        source: "Journal of Human Evolution"
+      },
+      {
+        text: "'Earworms' — songs stuck on repeat in your head — affect more than 90% of people at least once a week. Catchier, simpler melodies stick hardest.",
+        category: "Music",
+        source: "Psychology of Music"
+      },
+      {
+        text: "A standard grand piano has around 230 strings held under roughly 20 tonnes of combined tension — enough force to require a cast-iron frame.",
+        category: "Music",
+        source: "The Piano Book"
+      },
+      {
+        text: "The 'Amen break', a six-second drum solo recorded in 1969, was sampled so widely that it became a building block of hip-hop, jungle, and drum and bass.",
+        category: "Music",
+        source: "BBC Radio"
+      },
+      {
+        text: "Absolute (or 'perfect') pitch — the ability to name any note by ear with no reference — is estimated to occur in only about 1 in 10,000 people.",
+        category: "Music",
+        source: "Journal of the Acoustical Society of America"
+      },
+      {
+        text: "Beethoven composed some of his most celebrated works, including the Ninth Symphony, after he had gone almost completely deaf.",
+        category: "Music",
+        source: "The Beethoven-Haus Bonn"
+      },
+      {
+        text: "The theremin is played without any physical touch. The musician moves their hands between two antennas to control pitch and volume through the air.",
+        category: "Music",
+        source: "Smithsonian Magazine"
+      },
+      {
+        text: "Many people experience 'frisson' — a wave of chills or goosebumps during a powerful musical moment — driven by a sudden release of dopamine.",
+        category: "Music",
+        source: "Social Cognitive and Affective Neuroscience"
+      },
+      {
+        text: "A song's tempo can gently pull your heart rate toward its own rhythm, which is why slow music calms and fast music energises.",
+        category: "Music",
+        source: "Circulation"
+      },
+      {
+        text: "Mozart wrote his first compositions at around the age of five and was performing for European royalty before he turned seven.",
+        category: "Music",
+        source: "Encyclopaedia Britannica"
+      },
+      {
+        text: "The human voice is the only musical instrument that requires no external object to make sound — every other instrument is, in a sense, an imitation of it.",
+        category: "Music",
+        source: "The Singing Book"
+      },
+      {
+        text: "Singing together in a choir causes members' breathing and even heart rhythms to synchronise within minutes.",
+        category: "Music",
+        source: "Frontiers in Psychology"
+      },
+      {
+        text: "The most expensive musical instrument ever sold is the 'Macdonald' Stradivarius viola, offered at auction with a reserve above 45 million dollars.",
+        category: "Music",
+        source: "Sotheby's"
+      },
+      {
+        text: "Across many different cultures, listeners tend to hear music in major keys as bright or happy and music in minor keys as darker or sadder.",
+        category: "Music",
+        source: "Cognition"
+      },
+      {
+        text: "The didgeridoo, played by Aboriginal Australians for well over a thousand years, is sounded using a continuous 'circular breathing' technique.",
+        category: "Music",
+        source: "Australian Institute of Aboriginal Studies"
+      },
+      {
+        text: "Birdsong and human music share deep structural features — rhythm, repeated phrases, and variation — and activate overlapping pathways in the brain.",
+        category: "Music",
+        source: "Current Biology"
+      },
+      {
+        text: "Learning an instrument in childhood physically enlarges regions of the brain's auditory cortex and strengthens links between the two hemispheres.",
         category: "Music",
         source: "Journal of Neuroscience"
       },
       {
-        text: "Playing a musical instrument engages both hemispheres of the brain simultaneously, creating neural connections that benefit math, language, and spatial reasoning.",
+        text: "The pipe organ is often considered the most complex acoustic instrument ever built — the largest have tens of thousands of individual pipes.",
         category: "Music",
-        source: "Frontiers in Psychology"
+        source: "The Organ: An Encyclopedia"
       },
       {
-        text: "Singing in a group synchronizes heartbeats and breathing patterns, reducing stress hormones and increasing social bonding through oxytocin release.",
+        text: "A debate over whether orchestras should tune to 432 Hz instead of the standard 440 Hz has divided musicians for more than a century.",
         category: "Music",
-        source: "Frontiers in Psychology"
+        source: "Acta Acustica"
       },
+      // ============================================================
+      // NATURE — purely the natural world
+      // ============================================================
       {
-        text: "Music therapy reduces pain perception by up to 21% in hospitalized patients. The effect rivals some pharmaceutical interventions without side effects.",
-        category: "Music",
-        source: "JAMA"
-      },
-      {
-        text: "The Mozart Effect—improved spatial reasoning after listening to Mozart—is real but temporary (15 minutes). However, long-term music training has permanent cognitive benefits.",
-        category: "Music",
-        source: "Psychological Bulletin"
-      },
-      {
-        text: "Rhythm synchronization between mother and infant during music or singing strengthens attachment and predicts secure bonding patterns.",
-        category: "Music",
-        source: "Developmental Psychology"
-      },
-      {
-        text: "Women composers are underrepresented in classical music—only 4% of concert repertoire is female-composed, despite women earning 50% of music degrees.",
-        category: "Music",
-        source: "Classical Music Archives"
-      },
-      {
-        text: "Minor key music doesn't universally sound sad. Cultural exposure determines emotional interpretation—people hear music through learned associations.",
-        category: "Music",
-        source: "Cognition"
-      },
-      {
-        text: "Forests reduce cortisol (stress hormone) by 16% after just 20 minutes of exposure. The effect is called 'forest bathing' or shinrin-yoku in Japanese medicine.",
+        text: "A single teaspoon of healthy soil can contain more living microorganisms than there are people on Earth.",
         category: "Nature",
-        source: "Frontiers in Psychology"
+        source: "Nature Reviews Microbiology"
       },
       {
-        text: "Trees produce phytoncides—airborne chemicals that increase human immune function. Breathing forest air literally boosts your immune system.",
+        text: "Honeybees tell their hive-mates where to find food by performing a precise 'waggle dance' that encodes both the direction and the distance.",
         category: "Nature",
-        source: "Journal of Biological Regulators & Homeostatic Agents"
+        source: "The Dance Language of Bees"
       },
       {
-        text: "Walking barefoot on earth (grounding) reduces inflammation markers and improves sleep. Electrons from the earth neutralize free radicals in the body.",
-        category: "Nature",
-        source: "Journal of Inflammation Research"
-      },
-      {
-        text: "Nature sounds at 40-60 decibels improve cognitive performance and reduce mental fatigue. The effect rivals coffee in some studies.",
-        category: "Nature",
-        source: "Cognition"
-      },
-      {
-        text: "Exposure to natural green spaces reduces anxiety and depression symptoms comparable to antidepressants in some patient populations.",
-        category: "Nature",
-        source: "Scientific Reports"
-      },
-      {
-        text: "Flowers in workspace increase productivity by 15% and enhance creative thinking. The effect is stronger for women than men in most studies.",
-        category: "Nature",
-        source: "Journal of Environmental Psychology"
-      },
-      {
-        text: "Water sounds reduce heart rate and blood pressure within 3-5 minutes. Evolutionary adaptation may explain why flowing water is universally calming.",
-        category: "Nature",
-        source: "Frontiers in Psychology"
-      },
-      {
-        text: "Bees pollinate 75% of global food crops yet are declining at alarming rates. Without bees, human food security collapses—a silent ecological crisis.",
+        text: "Trees in a forest are linked underground by vast fungal networks, sometimes called the 'Wood Wide Web', through which they trade nutrients and chemical signals.",
         category: "Nature",
         source: "Nature"
       },
       {
-        text: "Mycorrhizal networks ('Wood Wide Web') connect trees underground, allowing them to share nutrients and communicate. Forests are conscious ecosystems.",
+        text: "Lightning strikes the Earth roughly 8 million times every day — about 100 strikes every second somewhere on the planet.",
         category: "Nature",
-        source: "Trends in Plant Science"
+        source: "NASA Earth Observatory"
       },
       {
-        text: "Soil microbiome diversity directly affects human gut microbiome diversity. Disconnection from soil may explain rising autoimmune and allergic diseases.",
+        text: "An octopus has three hearts and blue, copper-based blood. Two hearts pump blood to the gills, and the third pumps it to the rest of the body.",
         category: "Nature",
-        source: "Microbiome"
+        source: "Journal of Experimental Biology"
       },
       {
-        text: "Ocean sounds with frequencies between 0.5-2 Hz activate the parasympathetic nervous system, promoting deep relaxation and sleep.",
+        text: "A hummingbird's heart can beat more than 1,200 times a minute in flight, and its wings can beat up to 80 times every second.",
         category: "Nature",
-        source: "Scientific Reports"
+        source: "The Auk: Ornithological Advances"
       },
       {
-        text: "Plants release oxygen and absorb CO2, but also emit volatile organic compounds that improve air quality and human respiratory health indoors.",
+        text: "Some species of bamboo are among the fastest-growing plants on Earth, capable of growing nearly a metre in a single day.",
         category: "Nature",
-        source: "Journal of Environmental Psychology"
+        source: "Annals of Botany"
       },
       {
-        text: "Watching birds reduces anxiety and depression symptoms. The combination of nature exposure, movement, and unpredictability triggers neurological restoration.",
-        category: "Nature",
-        source: "Frontiers in Ecology and Evolution"
-      },
-      {
-        text: "Sunrise exposure synchronizes circadian rhythms within 30 minutes, improving sleep quality and daytime alertness for up to 24 hours.",
+        text: "The Arctic tern makes the longest migration of any animal — a yearly round trip of around 70,000 kilometres between the Arctic and Antarctic.",
         category: "Nature",
         source: "PNAS"
       },
       {
-        text: "Humming activates the vagus nerve, triggering parasympathetic response. This is why chanting and humming appear in healing practices across cultures.",
-        category: "Music",
-        source: "International Journal of Yoga"
-      },
-      {
-        text: "Rain sounds contain pink noise (1/f noise) which reduces brain activity and improves focus. This is why white noise machines mimic natural sounds.",
+        text: "Fungi are more closely related to animals than to plants, sharing a common ancestor with us more recently than with the plant kingdom.",
         category: "Nature",
-        source: "Frontiers in Psychology"
+        source: "Molecular Biology and Evolution"
       },
       {
-        text: "Music tempo affects movement speed—people unconsciously match their pace to music rhythm. This explains why stores use fast music to increase buying pace.",
-        category: "Music",
-        source: "Journal of Consumer Research"
-      },
-      {
-        text: "Fireflies synchronize their flashing in groups, creating a mesmerizing light show. This collective behavior is mathematically elegant and still not fully understood.",
+        text: "A single bolt of lightning can be about five times hotter than the surface of the Sun, reaching roughly 30,000°C for a fraction of a second.",
         category: "Nature",
-        source: "Nature"
+        source: "National Weather Service"
       },
       {
-        text: "Birdsong activates similar neural pathways as human music. Birds sing for joy, stress relief, and bonding—just like humans.",
+        text: "Tardigrades, or 'water bears', can survive the vacuum of space, extreme radiation, and being frozen or boiled — then revive when conditions improve.",
         category: "Nature",
-        source: "Current Biology"
+        source: "Astrobiology"
       },
       {
-        text: "Ultradian rhythms in nature (tidal cycles, moon phases) influence human hormones and mood. We are biological organisms tuned to natural cycles.",
+        text: "Coral reefs cover less than 1% of the ocean floor, yet they support around a quarter of all known marine species.",
         category: "Nature",
-        source: "Chronobiology International"
+        source: "NOAA"
       },
       {
-        text: "Music reduces pain in children during medical procedures better than sedatives. The mechanism involves both distraction and genuine neurological pain modulation.",
-        category: "Music",
-        source: "Pediatrics"
+        text: "The largest known living organism is a honey fungus in Oregon's Blue Mountains, spreading across roughly 9 square kilometres of forest soil.",
+        category: "Nature",
+        source: "Canadian Journal of Forest Research"
+      },
+      {
+        text: "One species of jellyfish, Turritopsis dohrnii, can revert from an adult back to an immature stage, effectively cheating death — earning it the name 'immortal jellyfish'.",
+        category: "Nature",
+        source: "Biological Bulletin"
+      },
+      {
+        text: "Sloths can hold their breath for up to 40 minutes by slowing their heart rate — longer than many dolphins can.",
+        category: "Nature",
+        source: "Smithsonian's National Zoo"
+      },
+      {
+        text: "Wombats produce cube-shaped droppings, the only known animal to do so. The shape stops the droppings from rolling away when used to mark territory.",
+        category: "Nature",
+        source: "Soft Matter"
+      },
+      {
+        text: "The Amazon rainforest is so vast it generates much of its own rainfall, with water cycling through the canopy and re-evaporating again and again.",
+        category: "Nature",
+        source: "Geophysical Research Letters"
+      },
+      {
+        text: "Fireflies in some parts of the world flash in perfect unison across entire trees, a synchronised light show that scientists are still working to fully explain.",
+        category: "Nature",
+        source: "Science Advances"
+      },
+      {
+        text: "A garden snail can sleep for up to three years, sealing itself away to wait out hot or dry conditions in a state called estivation.",
+        category: "Nature",
+        source: "Journal of Molluscan Studies"
+      },
+      {
+        text: "Earth's atmosphere has no hard edge. It simply thins with altitude until it fades imperceptibly into the vacuum of space.",
+        category: "Nature",
+        source: "European Space Agency"
       }
     ];
 
